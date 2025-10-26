@@ -2,6 +2,7 @@ package maroto
 
 import (
 	"errors"
+	"math"
 
 	"github.com/f-amaral/go-async/pool"
 	"github.com/johnfercher/maroto/v2/pkg/consts/generation"
@@ -207,7 +208,7 @@ func (m *Maroto) addRow(r core.Row) {
 	sumHeight := rowHeight + m.currentHeight + m.footerHeight
 
 	// Row smaller than the remain space on page
-	if sumHeight < maxHeight {
+	if sumHeight <= maxHeight {
 		m.currentHeight += rowHeight
 		m.rows = append(m.rows, r)
 		return
@@ -233,6 +234,9 @@ func (m *Maroto) addHeader() {
 
 func (m *Maroto) fillPageToAddNew() {
 	space := m.cell.Height - m.currentHeight - m.footerHeight
+
+	// Truncate space to 9 decimal places to avoid rounding errors
+	space = math.Floor(space*math.Pow10(9)) / math.Pow10(9)
 
 	c := col.New(m.config.MaxGridSize)
 	spaceRow := row.New(space)

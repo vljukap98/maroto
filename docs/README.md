@@ -19,12 +19,12 @@
 
 * We are about to create a document processor to generate PDFs by interpreting serialized data as: yml, json or html. Please contribute with your ideas in [this discussion](https://github.com/johnfercher/maroto/discussions/390).
 
-#### 3. Maroto`v2.2.2`is here! Try out:
+#### 3. Maroto`v2.3.1`is here! Try out:
 
 * Installation with`go get`:
 
 ```bash
-go get github.com/johnfercher/maroto/v2@v2.2.2
+go get github.com/johnfercher/maroto/v2@v2.3.1
 ```
 
 The public API was completely redesigned with the aim of enhancing the 
@@ -116,7 +116,7 @@ improved, enabling maroto to reach a whole new level in this fresh new step.
 [filename](https://raw.githubusercontent.com/johnfercher/maroto/master/pkg/core/core.go ':include :type=code')
 
 ## Unit Testing
-In maroto`v2`, is be possible to write unit tests by analyzing the **components tree**. To facilitate the 
+In maroto`v2`, it is possible to write unit tests by analyzing the **components tree**. To facilitate the 
 writing of unit tests, we created a dedicated test package.
 
 For an example, refer to [this link](v2/features/unittests?id=unit-testing).
